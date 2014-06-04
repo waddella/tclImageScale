@@ -1,0 +1,35 @@
+
+## Test Image Scale
+
+
+if {[lsearch [namespace children] ::tcltest] == -1} {
+    package require tcltest
+    namespace import ::tcltest::*
+}
+
+package require Imagescale
+package require Img
+
+test image_scale {Scale Tux} {
+    
+    set imgFrom [image create photo\
+       		     -file [file join tests Tux.png]]
+    set imgTo [image create photo]
+    
+    image_scale $imgFrom 60 50 $imgTo
+    
+
+    canvas .c
+    pack .c -fill both -expand TRUE	
+    
+    .c create image 200 200 -image $imgFrom
+    .c create image 600 200 -image $imgTo
+    
+    set result [list [$imgTo cget -width] [$imgTo cget -height]]
+
+} {60 50}
+
+
+# cleanup
+::tcltest::cleanupTests
+return
