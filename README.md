@@ -6,7 +6,7 @@ This package is still work in progress. Currently executing the
 error.
 
 This extension should allow one to scale tcl images with C (fast) and
-packed with [TEA](http://wiki.tcl.tk/327) so that it compiles easily
+packaged with [TEA](http://wiki.tcl.tk/327) so that it compiles easily
 under Windows, OS X, and Linux.
 
 The image scaling code is taken from tcl.tk wiki:
