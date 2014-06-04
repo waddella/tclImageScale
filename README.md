@@ -11,7 +11,8 @@ under Windows, OS X, and Linux.
 
 The image scaling code is taken from tcl.tk wiki:
 [Image scaling in C](http://wiki.tcl.tk/25685). The code works, see
-the `original`. The compile instructions are in the `imgscale.c` file.
+the `original` folder. The compile instructions are in the
+`imgscale.c` file.
 
 
 I used the `sampleextension` as a base to make a `TEA` package.
