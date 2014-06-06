@@ -1,46 +1,90 @@
 tclImageScale
 =============
 
-This package is still work in progress. Currently executing the
-`image_scale` procedure causes a *Segmentation fault (core dump)*
-error.
+This `tcl` extension scales/resizes `tcl` images with a `C` routine
+that is quite fast. The package follows the
+[TEA](http://wiki.tcl.tk/327) recommendation, so that it should
+compile easily under Windows, OS X, and Linux.
 
-This extension should allow one to scale tcl images with C (fast) and
-packaged with [TEA](http://wiki.tcl.tk/327) so that it compiles easily
-under Windows, OS X, and Linux.
-
-The image scaling code is taken from tcl.tk wiki:
-[Image scaling in C](http://wiki.tcl.tk/25685). The code works, see
-the `original` folder. The compile instructions are in the
-`imgscale.c` file.
+The image scaling code is taken from the tcl.tk wiki:
+[Image scaling in C](http://wiki.tcl.tk/25685).
 
 
-I used the `sampleextension` as a base to make a `TEA` package.
+### Installation
+
+
+Open the terminal of your choice and download the repository
 
 ~~~
-git clone https://github.com/tcltk/sampleextension.git
-git clone https://github.com/tcltk/tclconfig.git
+git clone https://github.com/waddella/tclImageScale.git
 ~~~
 
-The compilation instructions for the `Imagescale` package are
+Change your working directory into the package folder
+
+~~~
+cd tclImageScale
+~~~
+
+and run
 
 ~~~
 ./configure
 make
 ~~~
 
-And to test whether the `C` extension is working run
+To test whether the `C` extension is working run
 
 ~~~
 make test
 ~~~
 
-If you modify `configure.in` you need to recreate the `configure` file
-with
+If the test passes, you can use the package by appending the package
+path to the `auto_path` `tcl` variable in a `tcl` with
+
+~~~{.tcl}
+lappend auto_path [pwd]
+~~~
+
+alternatively you can install the package with
 
 ~~~
-autoconf
+make install
 ~~~
 
-When modifying the `Makefile.in` the `./configure` command creates a
-new `Makefile`.
+which copies the package to somewhere where `tclsh` will find the
+package.
+
+
+### Load the Package
+
+In the `tcl` console of your choice (I recommend `tkcon`) run
+
+~~~{.tcl}
+package require Imagescale
+~~~
+
+which will return the package version.
+
+
+### Use
+
+The `Imagescale` package provides the `image_scale` procedure which
+takes the following 5 arguments
+
+* `srcimg` A photo object created with "image create photo"
+* `newwidth` The new width of the image in pixels
+* `newheight` The new height of the image in pixels
+* `destimage` Name for the resulting image
+* `alpha` Alpha to apply to the image (1 - opaque, 0-clear)
+
+See the `image_scale.test` file in the `tests` folder.
+
+
+### More on TEA
+
+I used the `sampleextension` as a base to make this `TEA` package. See
+
+~~~
+git clone https://github.com/tcltk/sampleextension.git
+git clone https://github.com/tcltk/tclconfig.git
+~~~
