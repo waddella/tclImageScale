@@ -39,7 +39,7 @@ make test
 ~~~
 
 If the test passes, you can use the package by appending the package
-path to the `auto_path` `tcl` variable in a `tcl` with
+path to the `auto_path` `tcl` variable in a `tcl` shell with
 
 ~~~{.tcl}
 lappend auto_path [pwd]
