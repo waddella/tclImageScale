@@ -185,6 +185,10 @@ int Imagescale_Init(Tcl_Interp *interp)
     return TCL_ERROR;
   }
   
+  if(Tk_InitStubs(interp, TK_VERSION, 0) == NULL) {
+    return TCL_ERROR;
+  }
+
   Tcl_CreateObjCommand(interp, "image_scale", Imagescale_Cmd, 0, 0);
   
   return TCL_OK;
