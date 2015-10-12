@@ -73,7 +73,7 @@ which will return the package version.
 
 ### Use
 
-The `Imagescale` package provides the `image_scale` procedure which
+The `ImageScale` package provides the `image_scale` procedure which
 takes the following 5 arguments
 
 * `srcimg` A photo object created with "image create photo"
