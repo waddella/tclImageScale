@@ -4,7 +4,7 @@ dnl	generate the file "configure", which is run during Tcl installation
 dnl	to configure the system for the local environment.
 
 #-----------------------------------------------------------------------
-# Sample configure.in for Tcl Extensions.  The only places you should
+# Sample configure.ac for Tcl Extensions.  The only places you should
 # need to modify this file are marked by the string __CHANGE__
 #-----------------------------------------------------------------------
 
@@ -19,7 +19,7 @@ dnl	to configure the system for the local environment.
 # so that we create the export library with the dll.
 #-----------------------------------------------------------------------
 
-AC_INIT([Imagescale], [0.1])
+AC_INIT([ImageScale], [0.1])
 
 #--------------------------------------------------------------------
 # Call TEA_INIT as the first TEA_ macro to set up initial vars.
@@ -174,7 +174,7 @@ TEA_MAKE_LIB
 # a pkgIndex.tcl file or anything else at extension build time.
 #--------------------------------------------------------------------
 
-TEA_PROG_TCLSH
+#TEA_PROG_TCLSH
 TEA_PROG_WISH
 
 #--------------------------------------------------------------------

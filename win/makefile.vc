@@ -1,4 +1,4 @@
-#------------------------------------------------------------- -*- makefile -*-
+#-------------------------------------------------------------
 # makefile.vc --
 #
 #	Microsoft Visual C++ makefile for use with nmake.exe v1.62+ (VC++ 5.0+)
@@ -175,7 +175,7 @@ PROJECT = sample
 !endif
 # get project version from row "AC_INIT([project], [????])"
 !if [echo DOTVERSION = \>> versions.vc] \
-   && [nmakehlp -V ..\configure.in sample >> versions.vc]
+   && [nmakehlp -V ..\configure.ac sample >> versions.vc]
 !endif
 !include "versions.vc"
 
@@ -294,6 +294,10 @@ lflags	= -nologo -machine:$(MACHINE) $(LINKERFLAGS) $(ldebug)
 lflags	= $(lflags) -profile
 !endif
 
+!if $(MSVCRT) && !($(DEBUG) && !$(UNCHECKED)) && $(VCVERSION) >= 1900
+lflags	= $(lflags) -nodefaultlib:libucrt.lib
+!endif
+
 !if $(ALIGN98_HACK) && !$(STATIC_BUILD)
 ### Align sections for PE size savings.
 lflags	= $(lflags) -opt:nowin98
@@ -322,6 +326,9 @@ baselibs  = $(baselibs) $(TKSTUBLIB)
 !if $(VCVERSION) > 1399 && $(VCVERSION) < 1500
 baselibs   = $(baselibs) bufferoverflowU.lib
 !endif
+!endif
+!if $(MSVCRT) && !($(DEBUG) && !$(UNCHECKED)) && $(VCVERSION) >= 1900
+baselibs   = $(baselibs) ucrt.lib
 !endif
 
 baselibs   = $(baselibs) user32.lib gdi32.lib

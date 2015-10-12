@@ -284,14 +284,12 @@ UNCHECKED = 0
 !endif
 !endif
 
-
 !if !$(STATIC_BUILD)
 # Make sure we don't build overly fat DLLs.
 MSVCRT		= 1
 # We shouldn't statically put the extensions inside the shell when dynamic.
 TCL_USE_STATIC_PACKAGES = 0
 !endif
-
 
 #----------------------------------------------------------
 # Figure-out how to name our intermediate and output directories.

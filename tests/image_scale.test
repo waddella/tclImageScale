@@ -7,7 +7,7 @@ if {[lsearch [namespace children] ::tcltest] == -1} {
     namespace import ::tcltest::*
 }
 
-package require Imagescale
+package require ImageScale
 package require Img
 
 test image_scale {Scale Tux} {
