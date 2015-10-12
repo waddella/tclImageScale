@@ -10,7 +10,7 @@ The image scaling code is taken from the tcl.tk wiki:
 [Image scaling in C](http://wiki.tcl.tk/25685).
 
 
-### Installation
+### Installation OSX and Linux
 
 
 Open the terminal of your choice and download the repository
@@ -54,13 +54,18 @@ make install
 which copies the package to somewhere where `tclsh` will find the
 package.
 
+### Installation Windows
+
+If you would like to compile the extension with VC++ see the
+instructions in the `makefile.vc` file in the `win` directory. This is
+currently untested.
 
 ### Load the Package
 
 In the `tcl` console of your choice (I recommend `tkcon`) run
 
 ~~~{.tcl}
-package require Imagescale
+package require ImageScale
 ~~~
 
 which will return the package version.
