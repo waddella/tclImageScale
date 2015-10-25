@@ -48,7 +48,7 @@ lappend auto_path [pwd]
 alternatively you can install the package with
 
 ~~~
-make install
+sudo make install
 ~~~
 
 which copies the package to somewhere where `tclsh` will find the
@@ -73,8 +73,8 @@ which will return the package version.
 
 ### Use
 
-The `ImageScale` package provides the `image_scale` procedure which
-takes the following 5 arguments
+The `ImageScale` package provides the `image_scale` procedure in the
+`imagescale` namespace which takes the following 5 arguments
 
 * `srcimg` A photo object created with "image create photo"
 * `newwidth` The new width of the image in pixels

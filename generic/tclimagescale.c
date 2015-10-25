@@ -189,7 +189,7 @@ int Imagescale_Init(Tcl_Interp *interp)
     return TCL_ERROR;
   }
 
-  Tcl_CreateObjCommand(interp, "image_scale", Imagescale_Cmd, 0, 0);
+  Tcl_CreateObjCommand(interp, "imagescale::image_scale", Imagescale_Cmd, 0, 0);
   
   return TCL_OK;
   
