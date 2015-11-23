@@ -33,10 +33,11 @@ make
 ~~~
 
 Note that the `ImageScale` extension requires `Tcl` and `Tk`
-version 8.5 and higher. If the `./configure` picks up a `Tcl` version
-with a lower version then specify the path to the `Tcl` and `Tk`
-`tkConfig.sh` and `tclConfig.sh` files explicitly. For example, in OS
-X the following configure call might be necessary
+version 8.5 or higher. If the `./configure` picks up a `Tcl` build
+with a lower version then one needs to specify the path to the `Tcl`
+and `Tk` `tkConfig.sh` and `tclConfig.sh` files (for version 8.5
+or 8.6) explicitly. For example, in OS X the following configure call
+might be necessary
 
 ~~~
 ./configure --with-tcl=/Library/Frameworks/Tcl.framework/Versions/8.6/ \
