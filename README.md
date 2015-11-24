@@ -46,20 +46,7 @@ might be necessary
 make
 ~~~
 
-To test whether the `C` extension is working run
-
-~~~
-make test
-~~~
-
-If the test passes, you can use the package by appending the package
-path to the `auto_path` `tcl` variable in a `tcl` shell with
-
-~~~{.tcl}
-lappend auto_path [pwd]
-~~~
-
-alternatively you can install the package with
+You can install the package with
 
 ~~~
 sudo make install
